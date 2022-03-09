@@ -1,0 +1,28 @@
+EvalDataset:
+  !VOCDataSet
+  anno_path: valid.txt
+  data_fields:
+  - image
+  - gt_bbox
+  - gt_class
+  - difficult
+  dataset_dir: dataset/merge_dataset_fake
+  label_list: label_list.txt
+TestDataset:
+  !ImageFolder
+  anno_path: label_list.txt
+  dataset_dir: dataset/merge_dataset_fake
+  label_list: label_list.txt
+TrainDataset:
+  !VOCDataSet
+  anno_path: train.txt
+  data_fields:
+  - image
+  - gt_bbox
+  - gt_class
+  - difficult
+  dataset_dir: dataset/merge_dataset_fake
+  label_list: label_list.txt
+map_type: 11point
+metric: VOC
+num_classes: 6

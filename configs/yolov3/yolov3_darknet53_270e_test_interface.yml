@@ -1,0 +1,10 @@
+EvalReader:
+  collate_batch: false
+_BASE_:
+- ../datasets/dataset_test_interface.yml
+- ../runtime.yml
+- _base_/optimizer_270e_test_interface.yml
+- _base_/yolov3_darknet53_test_interface.yml
+- _base_/yolov3_reader_test_interface.yml
+snapshot_epoch: 100
+weights: output/yolov3_darknet53_270e_test_interface/model_final

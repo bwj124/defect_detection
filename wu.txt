@@ -1,0 +1,6 @@
+ansible==5.4.0
+ansible-core==2.12.3
+torch==1.5.1
+torchvision==0.6.0a0+35d732a
+
+matplotlib==3.2.2（这个版本可能更符合要求）
