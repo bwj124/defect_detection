@@ -1,18 +1,39 @@
 import json
 import os
 import sys
-os.chdir(os.getcwd()+'/UI')
+# os.chdir(os.getcwd()+'/UI')
+# print(os.getcwd())
 from PyQt5.QtCore import QTimer, QDateTime
 from PyQt5.QtGui import QPixmap
 from PyQt5.QtWidgets import QApplication, QMainWindow, QDialog, QFileDialog, QLabel
-from last import *
-from creat_task import Ui_Dialog as CT_Dialog
-from all_tasks import Ui_Dialog as AT_Dialog
-from all_models import Ui_Dialog as AM_Dialog
-from dev_mana import Ui_Dialog as DM_Dialog
-from settings import Ui_Dialog as ST_Dialog
-from picture_preview import Ui_Dialog as PV_Dialog
+if 'UI' in os.getcwd():
+    from last import *
+    from creat_task import Ui_Dialog as CT_Dialog
+    from all_tasks import Ui_Dialog as AT_Dialog
+    from all_models import Ui_Dialog as AM_Dialog
+    from dev_mana import Ui_Dialog as DM_Dialog
+    from settings import Ui_Dialog as ST_Dialog
+    from picture_preview import Ui_Dialog as PV_Dialog
 
+    tasks_path = 'tasks/'
+    data_path = 'data/'
+    models_path = 'models/'
+
+    icon_path = 'software_img/bitbug.ico'
+else:
+    from UI.last import *
+    from UI.creat_task import Ui_Dialog as CT_Dialog
+    from UI.all_tasks import Ui_Dialog as AT_Dialog
+    from UI.all_models import Ui_Dialog as AM_Dialog
+    from UI.dev_mana import Ui_Dialog as DM_Dialog
+    from UI.settings import Ui_Dialog as ST_Dialog
+    from UI.picture_preview import Ui_Dialog as PV_Dialog
+
+    tasks_path = 'UI/tasks/'
+    data_path = 'UI/data/'
+    models_path = 'UI/models/'
+
+    icon_path = 'UI/software_img/bitbug.ico'
 # global info
 # dict_task存当前任务的参数
 dict_task = {"task": "",  # 任务名
@@ -20,9 +41,7 @@ dict_task = {"task": "",  # 任务名
              "name": '',  # 产品编号
              "batch_name": [],   # 批处理时，文件名列表
              "model": ""}  # 模型名称
-tasks_path = 'tasks/'
-data_path = 'data/'
-models_path = 'models/'
+
 input_path = data_path + 'input/'
 out_path = data_path + 'output/'
 camera1_path = input_path + 'camera1/'
@@ -68,7 +87,7 @@ class MyCTDialog(CT_Dialog, QtWidgets.QDialog):
     def __init__(self):
         super(MyCTDialog, self).__init__(parent=None)
         self.setupUi(self)
-        self.setWindowIcon(QtGui.QIcon('software_img/bitbug.ico'))
+        self.setWindowIcon(QtGui.QIcon(icon_path))
         self.pushButton.clicked.connect(self.upload_file)
         self.pushButton_2.clicked.connect(self.create_task)
         self.pushButton_3.clicked.connect(self.cancel)
@@ -112,7 +131,7 @@ class MyATDialog(AT_Dialog, QtWidgets.QDialog):
     def __init__(self):
         super(MyATDialog, self).__init__(parent=None)
         self.setupUi(self)
-        self.setWindowIcon(QtGui.QIcon('software_img/bitbug.ico'))
+        self.setWindowIcon(QtGui.QIcon(icon_path))
         # 原来有东西的话先删除
         # while self.listWidget.count() > 0:
         #     self.listWidget.takeItem(0)
@@ -151,7 +170,7 @@ class MyAMDialog(AM_Dialog, QtWidgets.QDialog):
         super(MyAMDialog, self).__init__(parent=None)
         self.setupUi(self)
         self.my_parent = my_parent
-        self.setWindowIcon(QtGui.QIcon('software_img/bitbug.ico'))
+        self.setWindowIcon(QtGui.QIcon(icon_path))
         self.pushButton.clicked.connect(self.create_or_update_model)
         self.pushButton_2.clicked.connect(self.delete_model)
         self.pushButton_3.clicked.connect(self.select_model)
@@ -172,14 +191,14 @@ class MyDMDialog(DM_Dialog, QtWidgets.QDialog):
     def __init__(self):
         super(MyDMDialog, self).__init__(parent=None)
         self.setupUi(self)
-        self.setWindowIcon(QtGui.QIcon('software_img/bitbug.ico'))
+        self.setWindowIcon(QtGui.QIcon(icon_path))
 
 
 class MySTDialog(ST_Dialog, QtWidgets.QDialog):
     def __init__(self):
         super(MySTDialog, self).__init__(parent=None)
         self.setupUi(self)
-        self.setWindowIcon(QtGui.QIcon('software_img/bitbug.ico'))
+        self.setWindowIcon(QtGui.QIcon(icon_path))
 
 
 class MyPVDialog(PV_Dialog, QtWidgets.QDialog):
@@ -187,7 +206,7 @@ class MyPVDialog(PV_Dialog, QtWidgets.QDialog):
         super(MyPVDialog, self).__init__(parent=None)
         self.setupUi(self)
         self.label.installEventFilter(self)
-        self.setWindowIcon(QtGui.QIcon('software_img/bitbug.ico'))
+        self.setWindowIcon(QtGui.QIcon(icon_path))
         self.setWindowFlags(QtCore.Qt.WindowStaysOnTopHint)
         self.isKeyPress = False
 
@@ -221,7 +240,7 @@ class MyWindow(QMainWindow, Ui_MainWindow):
     def __init__(self):
         super(MyWindow, self).__init__(parent=None)
         self.setupUi(self)
-        self.setWindowIcon(QtGui.QIcon('software_img/bitbug.ico'))
+        self.setWindowIcon(QtGui.QIcon(icon_path))
         self.statusBar().showMessage('正在初始化...', )
         self.showMainWindow()
         self.ct_dialog = MyCTDialog()
@@ -247,7 +266,8 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         self.action_22.triggered.connect(self.white_theme)
         self.action_23.triggered.connect(self.purple_theme)
 
-        self.pushButton_2.clicked.connect(self.start)
+        # self.pushButton_2.clicked.connect(self.start)
+        self.pushButton_2.clicked.connect(lambda: self.model_process())
         self.pushButton_15.clicked.connect(self.stop)
 
         # 异常图像显示区设置
@@ -773,6 +793,46 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         self.label_14.setText(f'已检测 产品{self.count_object}件 异常{self.count_fault}处')
         print('有缺陷', filename)
 
+    # 调用模型, 返回预测结果
+    def use_model(self, infer_img, config_path="configs/yolov3/yolov3_darknet53_270e_voc_defect.yml",
+                  model_weights="output/yolov3_darknet53_270e_voc_defect/best_model.pdparams"):
+        # from tools.inference import predict
+        # return predict(infer_img, config_path, model_weights)
+        return [['hole', '0.5608304142951965', '787.90478515625', '257.6526794433594', '53.2989501953125', '60.5352783203125']]
+
+    def model_process(self, image="dataset/merge_dataset_fake/valid_image/IMG_20220117_101624_3.jpg"):
+        predict_result = self.use_model(image)
+
+        self.label_5.setPixmap(QPixmap(image))
+        if predict_result:
+            fault_temp = 'output/'+image.split('/')[-1]
+            self.fault_pictures.append(fault_temp)
+            item = QtWidgets.QListWidgetItem(QtGui.QIcon(fault_temp), '')
+            self.listWidget.addItem(item)
+            index_fault_tasks = [self.textBrowser, self.textBrowser_2, self.textBrowser_3]
+            index_fault_tasks_button = [self.pushButton_19, self.pushButton_21, self.pushButton_20]
+            index_fault_warn = [self.label_18, self.label_24, self.label_26]
+            index_fault_percent = [self.label_19, self.label_25, self.label_27]
+            for result in predict_result:
+                self.count_fault += 1
+                if self.count_fault < 4:
+                    current_time = QDateTime.currentDateTime().toString("yyyy-MM-dd hh:mm:ss")
+                    print(current_time)
+                    index_fault_tasks[self.count_fault - 1].setHtml(
+                        "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+                        "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+                        "</style></head><body style=\" font-family:\'SimSun\'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
+                        "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">铸件编号：{}</p>\n"
+                        "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">异常编号：{}</p>\n"
+                        "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">异常类别：{}</p>\n"
+                        "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">检测时间：{}</p></body></html>".format(
+                            dict_task['name'], self.count_fault, result[0], current_time))
+                    index_fault_tasks_button[self.count_fault - 1].setText('待处理')
+                    index_fault_warn[self.count_fault - 1].setText(f'异常{self.count_fault}')
+                    index_fault_percent[self.count_fault - 1].setText(f'{int(float(result[1]) * 10000) / 100.0}%')
+                self.label_14.setText(f'已检测 产品{self.count_object}件 异常{self.count_fault}处')
+                print('有缺陷', image)
+
     # 状态改变时，更新状态栏
     def update_statusbar(self):
         if dict_task['batch'] == -1:
@@ -799,20 +859,31 @@ class MyWindow(QMainWindow, Ui_MainWindow):
     # 更新模型的保存路径
     def save_new_model_path(self):
         filename, filetype = QtWidgets.QFileDialog.getSaveFileName(self, "选择模型保存位置", os.getcwd() + '/' + models_path,
-                                                                   "pt files (*.pt);;all files(*.*)")
+                                                                   "pdparams files (*.pdparams);;all files(*.*)")
         self.update_model_save_name = filename
         self.lineEdit_5.setText(filename)
 
     # 模型更新
     def update_model_start(self):
+        self.update_img_dir = self.lineEdit.text()
+        self.update_label_file = self.lineEdit_2.text()
+        self.update_model_save_name = self.lineEdit_5.text()
+        sys.path.append("..")
+        from tasks import retrain_task
+        self.move_files(self.update_img_dir, self.update_label_file)  # TODO
+        exp_name = '1'
+        pretrain_weights = self.map_model_name_weights(dict_task['model'])  # TODO
+        self.task = retrain_task(exp_name, 'dataset/dataset', pretrain_weights)
+        self.task.launch(ids=0)
         pass
 
     # 暂停模型更新
     def update_model_pause(self):
-        pass
+        self.task.stop()
 
-    # 切换CPU/GPU
+    # 切换CPU/GPU(先写成停止tmux会话)
     def switch_CPU_GPU(self):
+        self.task.close()
         pass
 
     # 保存训练结果

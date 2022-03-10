@@ -112,25 +112,32 @@ def create_task(
     return task_config_exp
 
 
-if __name__ == '__main__':
-    exp_name = "test_interface"
-    dataset_dir = "dataset/merge_dataset_fake"
+# if __name__ == '__main__':
+#     exp_name = "test_interface"
+#     dataset_dir = "dataset/merge_dataset_fake"
+#     model_weights = f"output/yolov3_darknet53_270e_{exp_name}/model_final"
+#
+#     # 创建训练所需的配置文件
+#     task_config_path = create_task(exp_name, dataset_dir, model_weights)
+#     # 在tmux session中开启训练
+#     # pretrain_weights=None 从头开始训练，设置权重路径则为继续训练
+#     pretrain_weights = None
+#     # pretrain_weights = "output/yolov3_darknet53_270e_test_interface/6.pdparams"
+#     task = Launcher(configs_path=task_config_path, exp_name=exp_name, pretrain_weights=pretrain_weights)
+#
+#     # 开始训练任务
+#     task.launch(ids=0)
+#
+#     # 停止训练任务
+#     # task.stop()
+#     # 关闭 tmux session
+#     # task.close()
+#
+# # python tools/infer.py -c configs/yolov3/yolov3_darknet53_270e_voc_defect.yml --infer_dir=dataset/defect_voc/test_img -o weights=output/yolov3_darknet53_270e_voc_defect/model_final.pdparams
+
+
+def retrain_task(exp_name="test_interface", dataset_dir="dataset/merge_dataset_fake", pretrain_weights=None):
     model_weights = f"output/yolov3_darknet53_270e_{exp_name}/model_final"
-
-    # 创建训练所需的配置文件
     task_config_path = create_task(exp_name, dataset_dir, model_weights)
-    # 在tmux session中开启训练
-    # pretrain_weights=None 从头开始训练，设置权重路径则为继续训练
-    pretrain_weights = None
-    # pretrain_weights = "output/yolov3_darknet53_270e_test_interface/6.pdparams"
-    task = Launcher(configs_path=task_config_path, exp_name=exp_name, pretrain_weights=pretrain_weights)
+    return Launcher(configs_path=task_config_path, exp_name=exp_name, pretrain_weights=pretrain_weights)
 
-    # 开始训练任务
-    task.launch(ids=0)
-
-    # 停止训练任务
-    # task.stop()
-    # 关闭 tmux session
-    # task.close()
-
-# python tools/infer.py -c configs/yolov3/yolov3_darknet53_270e_voc_defect.yml --infer_dir=dataset/defect_voc/test_img -o weights=output/yolov3_darknet53_270e_voc_defect/model_final.pdparams
