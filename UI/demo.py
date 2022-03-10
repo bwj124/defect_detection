@@ -868,14 +868,15 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         self.update_img_dir = self.lineEdit.text()
         self.update_label_file = self.lineEdit_2.text()
         self.update_model_save_name = self.lineEdit_5.text()
-        sys.path.append("..")
-        from tasks import retrain_task
-        self.move_files(self.update_img_dir, self.update_label_file)  # TODO
-        exp_name = '1'
-        pretrain_weights = self.map_model_name_weights(dict_task['model'])  # TODO
-        self.task = retrain_task(exp_name, 'dataset/dataset', pretrain_weights)
-        self.task.launch(ids=0)
-        pass
+        if self.update_img_dir and self.update_label_file and self.update_model_save_name:
+            sys.path.append("..")
+            from tasks import retrain_task
+            # self.move_files(self.update_img_dir, self.update_label_file)  # TODO
+            exp_name = '1'
+            # pretrain_weights = self.map_model_name_weights(dict_task['model'])  # TODO
+            self.task = retrain_task(exp_name)  #, 'dataset/dataset', pretrain_weights)
+            self.task.launch(ids=0)
+            # pass
 
     # 暂停模型更新
     def update_model_pause(self):
