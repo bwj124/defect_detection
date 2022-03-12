@@ -1,5 +1,6 @@
 import json
 import os
+import random
 import sys
 # os.chdir(os.getcwd()+'/UI')
 # print(os.getcwd())
@@ -7,6 +8,7 @@ from PyQt5.QtCore import QTimer, QDateTime
 from PyQt5.QtGui import QPixmap
 from PyQt5.QtWidgets import QApplication, QMainWindow, QDialog, QFileDialog, QLabel
 if 'UI' in os.getcwd():
+    # sys.path.append('..')
     from last import *
     from creat_task import Ui_Dialog as CT_Dialog
     from all_tasks import Ui_Dialog as AT_Dialog
@@ -14,6 +16,7 @@ if 'UI' in os.getcwd():
     from dev_mana import Ui_Dialog as DM_Dialog
     from settings import Ui_Dialog as ST_Dialog
     from picture_preview import Ui_Dialog as PV_Dialog
+    from utils import DataBase
 
     tasks_path = 'tasks/'
     data_path = 'data/'
@@ -28,6 +31,7 @@ else:
     from UI.dev_mana import Ui_Dialog as DM_Dialog
     from UI.settings import Ui_Dialog as ST_Dialog
     from UI.picture_preview import Ui_Dialog as PV_Dialog
+    from UI.utils import DataBase
 
     tasks_path = 'UI/tasks/'
     data_path = 'UI/data/'
@@ -249,6 +253,7 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         self.dm_dialog = MyDMDialog()
         self.st_dialog = MySTDialog()
         self.preview_dialog = MyPVDialog()
+        self.database = DataBase()
 
         self.action_10.triggered.connect(self.showMainWindow)
         self.action_17.triggered.connect(self.showHistory)
@@ -793,15 +798,26 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         self.label_14.setText(f'已检测 产品{self.count_object}件 异常{self.count_fault}处')
         print('有缺陷', filename)
 
+    # # 调用模型, 返回预测结果
+    # def use_model(self, infer_img, config_path="configs/yolov3/yolov3_darknet53_270e_voc_defect.yml",
+    #               model_weights="output/yolov3_darknet53_270e_voc_defect/best_model.pdparams"):
+    #     from tools.inference import predict
+    #     return predict(infer_img, config_path, model_weights)
+    #     # return [['hole', '0.5608304142951965', '787.90478515625', '257.6526794433594', '53.2989501953125', '60.5352783203125']]
+
     # 调用模型, 返回预测结果
-    def use_model(self, infer_img, config_path="configs/yolov3/yolov3_darknet53_270e_voc_defect.yml",
+    def generate_info(self, infer_img, config_path="configs/yolov3/yolov3_darknet53_270e_voc_defect.yml",
                   model_weights="output/yolov3_darknet53_270e_voc_defect/best_model.pdparams"):
-        # from tools.inference import predict
-        # return predict(infer_img, config_path, model_weights)
-        return [['hole', '0.5608304142951965', '787.90478515625', '257.6526794433594', '53.2989501953125', '60.5352783203125']]
+        from tools.inference import predict
+        predict_result =  predict(infer_img, config_path, model_weights)
+        return_list = []
+        for result in predict_result:
+            items = result.split()
+            return_list.append(items)
+        return return_list
 
     def model_process(self, image="dataset/merge_dataset_fake/valid_image/IMG_20220117_101624_3.jpg"):
-        predict_result = self.use_model(image)
+        predict_result = self.generate_info(image)
 
         self.label_5.setPixmap(QPixmap(image))
         if predict_result:
@@ -832,6 +848,16 @@ class MyWindow(QMainWindow, Ui_MainWindow):
                     index_fault_percent[self.count_fault - 1].setText(f'{int(float(result[1]) * 10000) / 100.0}%')
                 self.label_14.setText(f'已检测 产品{self.count_object}件 异常{self.count_fault}处')
                 print('有缺陷', image)
+                # 写入数据库
+                # info = [int(dict_task['name']), os.path.join(os.getcwd(), image),
+                #             os.path.join(os.getcwd(), fault_temp),
+                #             self.count_fault, result[0], current_time,
+                #             result[1], result[2], result[3], result[4], result[5]]
+                info = [int(random.random()*1000), os.path.join(os.getcwd().replace('\\', '/'), image),
+                        os.path.join(os.getcwd().replace('\\', '/'), fault_temp),
+                        self.count_fault, result[0], current_time,
+                        result[1], result[2], result[3], result[4], result[5]]
+                self.database.insert(info)
 
     # 状态改变时，更新状态栏
     def update_statusbar(self):
@@ -876,7 +902,8 @@ class MyWindow(QMainWindow, Ui_MainWindow):
             # pretrain_weights = self.map_model_name_weights(dict_task['model'])  # TODO
             self.task = retrain_task(exp_name)  #, 'dataset/dataset', pretrain_weights)
             self.task.launch(ids=0)
-            # pass
+        else:
+            print('请输入正确的路径')
 
     # 暂停模型更新
     def update_model_pause(self):

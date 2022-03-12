@@ -1,0 +1,64 @@
+BBoxPostProcess:
+  decode:
+    clip_bbox: true
+    conf_thresh: 0.005
+    downsample_ratio: 32
+    name: YOLOBox
+  nms:
+    keep_top_k: 100
+    name: MultiClassNMS
+    nms_threshold: 0.45
+    nms_top_k: 1000
+    score_threshold: 0.01
+DarkNet:
+  depth: 53
+  return_idx:
+  - 2
+  - 3
+  - 4
+YOLOv3:
+  backbone: DarkNet
+  neck: YOLOv3FPN
+  post_process: BBoxPostProcess
+  yolo_head: YOLOv3Head
+YOLOv3Head:
+  anchor_masks:
+  - - 6
+    - 7
+    - 8
+  - - 3
+    - 4
+    - 5
+  - - 0
+    - 1
+    - 2
+  anchors:
+  - - 10
+    - 13
+  - - 16
+    - 30
+  - - 33
+    - 23
+  - - 30
+    - 61
+  - - 62
+    - 45
+  - - 59
+    - 119
+  - - 116
+    - 90
+  - - 156
+    - 198
+  - - 373
+    - 326
+  loss: YOLOv3Loss
+YOLOv3Loss:
+  downsample:
+  - 32
+  - 16
+  - 8
+  ignore_thresh: 0.7
+  label_smooth: false
+architecture: YOLOv3
+norm_type: sync_bn
+pretrain_weights: https://paddledet.bj.bcebos.com/models/pretrained/DarkNet53_pretrained.pdparams
