@@ -254,6 +254,14 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         self.st_dialog = MySTDialog()
         self.preview_dialog = MyPVDialog()
         self.database = DataBase()
+        if self.database.search():
+            self.database.cu.execute("select MAX(fault_id) from test")
+            self.current_max_id = self.database.cu.fetchall()[0][0]
+            self.database.cu.execute("select MAX(fault_id) from test")
+            self.current_max_fault_id = self.database.cu.fetchall()[0][0]
+        else:
+            self.current_max_id = 0
+            self.current_max_fault_id = 0
 
         self.action_10.triggered.connect(self.showMainWindow)
         self.action_17.triggered.connect(self.showHistory)
@@ -316,6 +324,10 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         self.timer.start(2000)
         self.count_fault = 0
         self.count_object = 1
+        # start函数用
+        self.max_i = 0
+        self.i = 0
+        self.timer_control = QTimer()
 
     def showMainWindow(self):
         self.stackedWidget.setCurrentIndex(0)
@@ -680,9 +692,7 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         self.camera8 = self.join_path(self.all_photos(camera8_path))
 
         self.max_i = len(self.camera8)
-        self.i = 0
         # 每隔一秒换一张图片
-        self.timer_control = QTimer()
         self.timer_control.timeout.connect(self.setPhoto)
         self.timer_control.start(1000)
         self.find_fault()
@@ -849,14 +859,11 @@ class MyWindow(QMainWindow, Ui_MainWindow):
                 self.label_14.setText(f'已检测 产品{self.count_object}件 异常{self.count_fault}处')
                 print('有缺陷', image)
                 # 写入数据库
-                # info = [int(dict_task['name']), os.path.join(os.getcwd(), image),
-                #             os.path.join(os.getcwd(), fault_temp),
-                #             self.count_fault, result[0], current_time,
-                #             result[1], result[2], result[3], result[4], result[5]]
-                info = [int(random.random()*1000), os.path.join(os.getcwd().replace('\\', '/'), image),
-                        os.path.join(os.getcwd().replace('\\', '/'), fault_temp),
-                        self.count_fault, result[0], current_time,
+                info = [self.current_max_id+1, os.path.join(os.getcwd(), image).replace('\\', '/'),
+                        os.path.join(os.getcwd(), fault_temp).replace('\\', '/'),
+                        self.count_fault+self.current_max_fault_id, result[0], current_time,
                         result[1], result[2], result[3], result[4], result[5]]
+                self.current_max_id+=1
                 self.database.insert(info)
 
     # 状态改变时，更新状态栏
@@ -891,6 +898,7 @@ class MyWindow(QMainWindow, Ui_MainWindow):
 
     # 模型更新
     def update_model_start(self):
+        print('开始训练模型')
         self.update_img_dir = self.lineEdit.text()
         self.update_label_file = self.lineEdit_2.text()
         self.update_model_save_name = self.lineEdit_5.text()

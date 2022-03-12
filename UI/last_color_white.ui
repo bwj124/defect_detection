@@ -1510,7 +1510,7 @@ background-color: rgb(255, 255, 255);</string>
     <addaction name="separator"/>
     <addaction name="menud"/>
    </widget>
-      <widget class="QMenu" name="menu_3">
+   <widget class="QMenu" name="menu_3">
     <property name="title">
      <string>设置</string>
     </property>
@@ -1606,7 +1606,7 @@ background-color: rgb(255, 255, 255);</string>
           </font>
          </property>
          <property name="styleSheet">
-          <string notr="true">background-color: rgb(255, 255, 255);border-radius:3px;</string>
+          <string notr="true">background-color: rgb(255, 255, 255);border-radius:3px;color:rgb(0, 0, 0);</string>
          </property>
         </widget>
        </item>

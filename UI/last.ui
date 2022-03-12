@@ -55,7 +55,7 @@ border-width: 2px;border-radius:5px;</string>
        <number>0</number>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>3</number>
       </property>
       <widget class="QWidget" name="page">
        <property name="styleSheet">
@@ -1613,7 +1613,7 @@ color: rgb(255, 255, 255);
           </font>
          </property>
          <property name="styleSheet">
-          <string notr="true">background-color: rgb(255, 255, 255);border-radius:3px;</string>
+          <string notr="true">background-color: rgb(255, 255, 255);border-radius:3px;color:rgb(0, 0, 0);</string>
          </property>
         </widget>
        </item>

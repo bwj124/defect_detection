@@ -14,7 +14,7 @@
    <string>铸件检测系统</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color:rgb(36, 36, 36)</string>
+   <string notr="true">background-color:rgb(36, 36, 36);color:rgb(0, 0, 0);</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QHBoxLayout" name="horizontalLayout_14">
