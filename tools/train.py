@@ -18,6 +18,7 @@ from __future__ import print_function
 
 import os
 import sys
+os.environ['FLAGS_eager_delete_tensor_gb'] = "0.0"
 
 # add python path of PadleDetection to sys.path
 parent_path = os.path.abspath(os.path.join(__file__, *(['..'] * 2)))
@@ -124,6 +125,7 @@ def run(FLAGS, cfg):
         trainer.load_weights(cfg.pretrain_weights)
 
     # training
+    # trainer.evaluate()
     trainer.train(FLAGS.eval)
 
 

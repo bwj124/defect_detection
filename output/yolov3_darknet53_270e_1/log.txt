@@ -1,0 +1,277 @@
+D:\miniconda3\envs\bs2\lib\site-packages\paddle\tensor\creation.py:130: DeprecationWarning: `np.object` is a deprecated alias for the builtin `object`. To silence this warning, use `object` by itself. Doing this will not modify any behavior and is safe. 
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  if data.dtype == np.object:
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_105403.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220120_110050.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_111551_1.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_105750.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_110010_1.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_105744_1.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_102832.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_110615.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220120_105512.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_111508_1.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_110340.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220124_142847.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_102613.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_110629.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_103040.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220120_105556.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_110813_3.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220120_110046_3.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_112017.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220124_142838.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_112233_1.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_102623.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_105345.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_110220_2.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_112202_1.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_104826_1.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_103133.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_105504.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_103247.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_111332.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_110758_1.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_105538.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_111534.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_111514_1.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_105519.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_105921.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220120_105523.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_111354.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_110704.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_103114_1.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_104800_1.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_110720.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_110826_1.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_111501_1.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_110641.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220120_110039.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220124_145750.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_110725.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_110414_1.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_103218.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_111906_1.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_110853.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_110649.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_105423.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_110748.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_110455_1.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220120_105027.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_110408_1.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_111859_1.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_102812.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_102858.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_104936_1.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_105908.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_111418_1.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_105820.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_110246_1.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_105436_1.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_102551.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_111544_1.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_105633.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_111650_1.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_105417.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_111658_1.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220120_105445.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_110344_1.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220124_144447.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_104901_1.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_111359.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220120_105559.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_104722_1.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220124_160707.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_111632.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_102559.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220124_161000.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_110032_1.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_102851.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_105028.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220120_110058.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_111913_1.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_104836_1.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_110352_1.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220120_110014.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_110225.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_110620.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_101624_1.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_105457.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_111413_1.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_103150.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_105338_1.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_103229.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_105020.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_110635.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_110902.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_110024.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_105756.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_112216_1.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_105810.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_112229_1.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_112141_1.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_105704_1.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_110238.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_102538.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220120_105545.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_104812_1.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_111642_1.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220120_105100.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_105832.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_111557_1.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_111952.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_103047.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_110734_1.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_110234.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_110256_1.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_103203.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_111940_1.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_105801_1.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_102749.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_111526_1.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_102505_1.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_111613_1.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220124_144507.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_105624.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_110430_1.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_105338.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_110302_1.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_110835_3.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_111338.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_105546.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_111620_1.xml, and it will be ignored
+[03/13 18:02:34] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_110910.xml, and it will be ignored
+[03/13 18:02:35] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_103259.xml, and it will be ignored
+[03/13 18:02:35] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_112212_1.xml, and it will be ignored
+[03/13 18:02:35] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220124_144549.xml, and it will be ignored
+[03/13 18:02:35] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_110734.xml, and it will be ignored
+[03/13 18:02:35] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_110401_1.xml, and it will be ignored
+[03/13 18:02:35] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_110322.xml, and it will be ignored
+[03/13 18:02:35] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220120_105048.xml, and it will be ignored
+[03/13 18:02:35] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_105649.xml, and it will be ignored
+[03/13 18:02:35] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220120_110111.xml, and it will be ignored
+[03/13 18:02:35] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_105644.xml, and it will be ignored
+[03/13 18:02:35] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_105902.xml, and it will be ignored
+[03/13 18:02:35] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_111846.xml, and it will be ignored
+[03/13 18:02:35] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_105616.xml, and it will be ignored
+[03/13 18:02:35] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_103057.xml, and it will be ignored
+[03/13 18:02:35] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220120_105030.xml, and it will be ignored
+[03/13 18:02:35] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_105824.xml, and it will be ignored
+[03/13 18:02:35] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_103104.xml, and it will be ignored
+[03/13 18:02:35] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_110709.xml, and it will be ignored
+[03/13 18:02:35] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_105608.xml, and it will be ignored
+[03/13 18:02:35] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_110658.xml, and it will be ignored
+[03/13 18:02:35] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220124_145739.xml, and it will be ignored
+[03/13 18:02:35] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_102824.xml, and it will be ignored
+[03/13 18:02:35] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_104911_1.xml, and it will be ignored
+[03/13 18:02:35] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220120_105103.xml, and it will be ignored
+[03/13 18:02:35] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_110229.xml, and it will be ignored
+[03/13 18:02:35] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_110715.xml, and it will be ignored
+[03/13 18:02:35] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_111837.xml, and it will be ignored
+[03/13 18:02:35] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_103238.xml, and it will be ignored
+[03/13 18:02:35] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220120_105016.xml, and it will be ignored
+[03/13 18:02:35] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_105528.xml, and it will be ignored
+[03/13 18:02:35] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_105448.xml, and it will be ignored
+[03/13 18:02:35] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_110625.xml, and it will be ignored
+[03/13 18:02:35] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_110501_1.xml, and it will be ignored
+[03/13 18:02:35] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_105556.xml, and it will be ignored
+[03/13 18:02:35] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_105828.xml, and it will be ignored
+[03/13 18:02:35] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_110326.xml, and it will be ignored
+[03/13 18:02:35] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_105851_1.xml, and it will be ignored
+[03/13 18:02:35] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_102511.xml, and it will be ignored
+[03/13 18:02:35] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_105838.xml, and it will be ignored
+[03/13 18:02:35] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_112224_1.xml, and it will be ignored
+[03/13 18:02:35] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_112141.xml, and it will be ignored
+[03/13 18:02:35] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_104920_1.xml, and it will be ignored
+[03/13 18:02:35] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_104854_1.xml, and it will be ignored
+[03/13 18:02:35] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220120_110128.xml, and it will be ignored
+[03/13 18:02:35] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_111934_1.xml, and it will be ignored
+[03/13 18:02:35] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_110423_1.xml, and it will be ignored
+[03/13 18:02:35] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220120_105549.xml, and it will be ignored
+[03/13 18:02:35] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_111917_1.xml, and it will be ignored
+[03/13 18:02:35] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_112025.xml, and it will be ignored
+[03/13 18:02:35] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_110331.xml, and it will be ignored
+[03/13 18:02:35] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220120_105037.xml, and it will be ignored
+[03/13 18:02:35] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220120_110027.xml, and it will be ignored
+[03/13 18:02:35] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220124_144530.xml, and it will be ignored
+[03/13 18:02:35] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_110842.xml, and it will be ignored
+[03/13 18:02:35] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_103032_1.xml, and it will be ignored
+[03/13 18:02:35] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220124_145727.xml, and it will be ignored
+[03/13 18:02:35] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_105710_1.xml, and it will be ignored
+[03/13 18:02:35] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_102758.xml, and it will be ignored
+[03/13 18:02:35] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_111443.xml, and it will be ignored
+[03/13 18:02:35] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220120_105455.xml, and it will be ignored
+[03/13 18:02:35] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_112153.xml, and it will be ignored
+[03/13 18:02:35] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_102843.xml, and it will be ignored
+[03/13 18:02:35] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220120_105040.xml, and it will be ignored
+[03/13 18:02:35] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_102448_1.xml, and it will be ignored
+[03/13 18:02:35] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220117_110307.xml, and it will be ignored
+[03/13 18:02:35] ppdet.data.source.voc WARNING: Illegal xml file: dataset/merge_dataset_fake\annotations\IMG_20220120_105534.xml, and it will be ignored
+W0313 18:02:35.295290   468 device_context.cc:447] Please NOTE: device: 0, GPU Compute Capability: 7.5, Driver API Version: 11.1, Runtime API Version: 10.2
+W0313 18:02:35.316234   468 device_context.cc:465] device: 0, cuDNN Version: 7.6.
+[03/13 18:02:40] ppdet.utils.checkpoint INFO: The shape [255] in pretrained weight yolo_head.yolo_output.0.bias is unmatched with the shape [33] in model yolo_head.yolo_output.0.bias. And the weight yolo_head.yolo_output.0.bias will not be loaded
+[03/13 18:02:40] ppdet.utils.checkpoint INFO: The shape [255, 1024, 1, 1] in pretrained weight yolo_head.yolo_output.0.weight is unmatched with the shape [33, 1024, 1, 1] in model yolo_head.yolo_output.0.weight. And the weight yolo_head.yolo_output.0.weight will not be loaded
+[03/13 18:02:40] ppdet.utils.checkpoint INFO: The shape [255] in pretrained weight yolo_head.yolo_output.1.bias is unmatched with the shape [33] in model yolo_head.yolo_output.1.bias. And the weight yolo_head.yolo_output.1.bias will not be loaded
+[03/13 18:02:40] ppdet.utils.checkpoint INFO: The shape [255, 512, 1, 1] in pretrained weight yolo_head.yolo_output.1.weight is unmatched with the shape [33, 512, 1, 1] in model yolo_head.yolo_output.1.weight. And the weight yolo_head.yolo_output.1.weight will not be loaded
+[03/13 18:02:40] ppdet.utils.checkpoint INFO: The shape [255] in pretrained weight yolo_head.yolo_output.2.bias is unmatched with the shape [33] in model yolo_head.yolo_output.2.bias. And the weight yolo_head.yolo_output.2.bias will not be loaded
+[03/13 18:02:40] ppdet.utils.checkpoint INFO: The shape [255, 256, 1, 1] in pretrained weight yolo_head.yolo_output.2.weight is unmatched with the shape [33, 256, 1, 1] in model yolo_head.yolo_output.2.weight. And the weight yolo_head.yolo_output.2.weight will not be loaded
+[03/13 18:02:40] ppdet.utils.checkpoint INFO: Finish loading model weights: /mnt/data/hzz/paddle_data/weights\yolov3_darknet53_270e_coco.pdparams
+Traceback (most recent call last):
+  File "tools/train.py", line 179, in <module>
+    main()
+  File "tools/train.py", line 175, in main
+    run(FLAGS, cfg)
+  File "tools/train.py", line 129, in run
+    trainer.train(FLAGS.eval)
+  File "E:\Code\PyCharm\Workspace\defect_detection\ppdet\engine\trainer.py", line 400, in train
+    outputs = model(data)
+  File "D:\miniconda3\envs\bs2\lib\site-packages\paddle\fluid\dygraph\layers.py", line 917, in __call__
+    return self._dygraph_call_func(*inputs, **kwargs)
+  File "D:\miniconda3\envs\bs2\lib\site-packages\paddle\fluid\dygraph\layers.py", line 907, in _dygraph_call_func
+    outputs = self.forward(*inputs, **kwargs)
+  File "E:\Code\PyCharm\Workspace\defect_detection\ppdet\modeling\architectures\meta_arch.py", line 54, in forward
+    out = self.get_loss()
+  File "E:\Code\PyCharm\Workspace\defect_detection\ppdet\modeling\architectures\yolo.py", line 121, in get_loss
+    return self._forward()
+  File "E:\Code\PyCharm\Workspace\defect_detection\ppdet\modeling\architectures\yolo.py", line 79, in _forward
+    body_feats = self.backbone(self.inputs)
+  File "D:\miniconda3\envs\bs2\lib\site-packages\paddle\fluid\dygraph\layers.py", line 917, in __call__
+    return self._dygraph_call_func(*inputs, **kwargs)
+  File "D:\miniconda3\envs\bs2\lib\site-packages\paddle\fluid\dygraph\layers.py", line 907, in _dygraph_call_func
+    outputs = self.forward(*inputs, **kwargs)
+  File "E:\Code\PyCharm\Workspace\defect_detection\ppdet\modeling\backbones\darknet.py", line 334, in forward
+    out = conv_block_i(out)
+  File "D:\miniconda3\envs\bs2\lib\site-packages\paddle\fluid\dygraph\layers.py", line 917, in __call__
+    return self._dygraph_call_func(*inputs, **kwargs)
+  File "D:\miniconda3\envs\bs2\lib\site-packages\paddle\fluid\dygraph\layers.py", line 907, in _dygraph_call_func
+    outputs = self.forward(*inputs, **kwargs)
+  File "E:\Code\PyCharm\Workspace\defect_detection\ppdet\modeling\backbones\darknet.py", line 235, in forward
+    y = basic_block_i(y)
+  File "D:\miniconda3\envs\bs2\lib\site-packages\paddle\fluid\dygraph\layers.py", line 917, in __call__
+    return self._dygraph_call_func(*inputs, **kwargs)
+  File "D:\miniconda3\envs\bs2\lib\site-packages\paddle\fluid\dygraph\layers.py", line 907, in _dygraph_call_func
+    outputs = self.forward(*inputs, **kwargs)
+  File "E:\Code\PyCharm\Workspace\defect_detection\ppdet\modeling\backbones\darknet.py", line 180, in forward
+    conv2 = self.conv2(conv1)
+  File "D:\miniconda3\envs\bs2\lib\site-packages\paddle\fluid\dygraph\layers.py", line 917, in __call__
+    return self._dygraph_call_func(*inputs, **kwargs)
+  File "D:\miniconda3\envs\bs2\lib\site-packages\paddle\fluid\dygraph\layers.py", line 907, in _dygraph_call_func
+    outputs = self.forward(*inputs, **kwargs)
+  File "E:\Code\PyCharm\Workspace\defect_detection\ppdet\modeling\backbones\darknet.py", line 79, in forward
+    out = F.leaky_relu(out, 0.1)
+  File "D:\miniconda3\envs\bs2\lib\site-packages\paddle\nn\functional\activation.py", line 387, in leaky_relu
+    return _C_ops.leaky_relu(x, 'alpha', negative_slope)
+SystemError: (Fatal) Operator leaky_relu raises an struct paddle::memory::allocation::BadAlloc exception.
+The exception content is
+:ResourceExhaustedError: 
+
+Out of memory error on GPU 0. Cannot allocate 9.031494MB memory on GPU 0, 3.997424GB memory has been allocated and available memory is only 2.637501MB.
+
+Please check whether there is any other process using GPU 0.
+1. If yes, please stop them, or start PaddlePaddle on another GPU.
+2. If no, please decrease the batch size of your model. 
+
+ (at ..\paddle\fluid\memory\allocation\cuda_allocator.cc:79)
+. (at ..\paddle\fluid\imperative\tracer.cc:221)
+
+[0m

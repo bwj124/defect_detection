@@ -909,7 +909,7 @@ class MyWindow(QMainWindow, Ui_MainWindow):
             exp_name = '1'
             # pretrain_weights = self.map_model_name_weights(dict_task['model'])  # TODO
             self.task = retrain_task(exp_name)  #, 'dataset/dataset', pretrain_weights)
-            self.task.launch(ids=0)
+            self.task.run()
         else:
             print('请输入正确的路径')
 
