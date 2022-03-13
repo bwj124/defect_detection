@@ -328,6 +328,12 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         self.max_i = 0
         self.i = 0
         self.timer_control = QTimer()
+        self.timer_control.timeout.connect(self.setPhoto)
+
+        # 更新模型日志的最后一行信息
+        self.update_timer = QTimer()
+        self.last_line =None
+        self.is_last_line_read = False
 
     def showMainWindow(self):
         self.stackedWidget.setCurrentIndex(0)
@@ -693,7 +699,6 @@ class MyWindow(QMainWindow, Ui_MainWindow):
 
         self.max_i = len(self.camera8)
         # 每隔一秒换一张图片
-        self.timer_control.timeout.connect(self.setPhoto)
         self.timer_control.start(1000)
         self.find_fault()
         # self.new_fault = []
@@ -898,20 +903,32 @@ class MyWindow(QMainWindow, Ui_MainWindow):
 
     # 模型更新
     def update_model_start(self):
-        print('开始训练模型')
         self.update_img_dir = self.lineEdit.text()
         self.update_label_file = self.lineEdit_2.text()
         self.update_model_save_name = self.lineEdit_5.text()
-        if self.update_img_dir and self.update_label_file and self.update_model_save_name:
-            sys.path.append("..")
-            from tasks import retrain_task
-            # self.move_files(self.update_img_dir, self.update_label_file)  # TODO
-            exp_name = '1'
-            # pretrain_weights = self.map_model_name_weights(dict_task['model'])  # TODO
-            self.task = retrain_task(exp_name)  #, 'dataset/dataset', pretrain_weights)
-            self.task.run()
-        else:
-            print('请输入正确的路径')
+        # if self.update_img_dir and self.update_label_file and self.update_model_save_name:
+        sys.path.append("..")
+        from tasks import retrain_task
+        # self.move_files(self.update_img_dir, self.update_label_file)  # TODO
+        exp_name = '1'
+        # pretrain_weights = self.map_model_name_weights(dict_task['model'])  # TODO
+        self.task = retrain_task(exp_name)  #, 'dataset/dataset', pretrain_weights)
+        print('开始训练模型')
+        self.task.run()
+        self.update_timer.timeout.connect(lambda: self.set_end_line(f"output/yolov3_darknet53_270e_{exp_name}/log.txt"))
+        self.update_timer.start(2000)
+        # else:
+        #     print('请输入正确的路径')
+
+    def set_end_line(self, filename):
+        self.last_line = read_end_line(filename)
+        if self.last_line is not None:
+            self.is_last_line_read = True
+            line_list = self.last_line.split()
+            print(line_list[4], line_list[5], line_list[6], line_list[7])
+        if self.is_last_line_read and self.last_line is None:
+            self.update_timer.stop()
+            print('模型训练结束')
 
     # 暂停模型更新
     def update_model_pause(self):
@@ -933,6 +950,52 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         self.am_dialog.setVisible(False)
         self.dm_dialog.setVisible(False)
         self.st_dialog.setVisible(False)
+
+
+def read_end_line(filename):
+    with open(filename, 'rb') as f:  # 打开文件
+        offset = -500  # 设置偏移量
+        while True:
+            """
+                 file.seek(off, whence=0)：从文件中移动off个操作标记（文件指针），正往结束方向移动，负往开始方向移动。
+                 如果设定了whence参数，就以whence设定的起始位为准，0代表从头开始，1代表当前位置，2代表文件最末尾位置。 
+            """
+            try:
+                f.seek(offset, 2)  # seek(offset, 2)表示文件指针：从文件末尾(2)开始向前300个字符
+                lines = f.readlines()  # 读取文件指针范围内所有行
+                last_line = None
+                # if len(lines) >= 4:  # 判断是否最后至少有3行，这样保证了最后两行是完整的
+                #     if is_needed_line(lines[-1].decode()):
+                #         last_line = lines[-1].decode()
+                #     elif is_needed_line(lines[-2].decode()):
+                #         last_line = lines[-2].decode()
+                #     elif is_needed_line(lines[-3].decode()):
+                #         last_line = lines[-3].decode()
+                #     print('文件' + filename + '最后一行信息为：' + last_line)
+                #     break
+                # 如果off为300时得到的readlines只有一行内容，那么不能保证最后一行是完整的
+                # 所以off翻倍重新运行，直到readlines不止一行
+                if len(lines) >= 2:  # 判断是否最后至少有3行，这样保证了最后两行是完整的
+                    if is_needed_line(lines[-1].decode()):
+                        last_line = lines[-1].decode()
+                    print(last_line)
+                    break
+                offset *= 2
+            except Exception as e:
+                last_line = None
+                print(e)
+                break
+        return last_line
+
+
+def is_needed_line(line: str):
+    line_list = line.split()
+    if len(line_list) < 20:
+        return False
+    elif 'engine' in line_list[2]:
+        return True
+    else:
+        return False
 
 
 def main():

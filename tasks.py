@@ -35,7 +35,9 @@ def create_task(
         exp_name,
         dataset_dir,
         model_weights,
-        epoch=200,
+        # 原epoch是200
+        epoch=1,
+        batch_size=4,
         snapshot_epoch=100,
         learning_rate=0.000125,
         num_classes=6,
@@ -47,6 +49,7 @@ def create_task(
     :param dataset_dir: 训练数据路径
     :param model_weights: 模型保存路径
     :param epoch: 训练轮数
+    :param batch_size: batch_size
     :param snapshot_epoch: 权重保存轮数
     :param learning_rate: 学习率
     :param num_classes: 缺陷类别数
@@ -92,7 +95,8 @@ def create_task(
     reformat_optimizer_config(optimizer_config_exp)
 
     update_yaml(base_path=READER_CONFIG_BASE,
-                save_path=reader_config_exp
+                save_path=reader_config_exp,
+                **{"TrainReader": {"batch_size": batch_size}}
                 )
     update_yaml(base_path=NET_CONFIG_BASE,
                 save_path=net_config_exp
@@ -114,36 +118,36 @@ def create_task(
     return task_config_exp
 
 
-if __name__ == '__main__':
-    exp_name = "test_interface"
-    # 数据集路径
-    dataset_dir = "dataset/merge_dataset_fake"
-    # 模型保存路径
+# if __name__ == '__main__':
+#     exp_name = "test_interface"
+#     # 数据集路径
+#     dataset_dir = "dataset/merge_dataset_fake"
+#     # 模型保存路径
+#     model_weights = f"output/yolov3_darknet53_270e_{exp_name}/model_final"
+#     # 日志路径
+#     log_dir = f"output/yolov3_darknet53_270e_{exp_name}"
+#
+#     batch_size = 1
+#     # 创建训练所需的配置文件
+#     task_config_path = create_task(exp_name, dataset_dir, model_weights, batch_size=batch_size)
+#
+#     # pretrain_weights=None 从头开始训练，设置权重路径则为继续训练
+#     pretrain_weights = None
+#     # pretrain_weights = "output/yolov3_darknet53_270e_test_interface/6.pdparams"
+#     # task = Launcher(configs_path=task_config_path, exp_name=exp_name, pretrain_weights=pretrain_weights)
+#     task = ProcessLauncher(configs_path=task_config_path, exp_name=exp_name, log_dir=log_dir,
+#                            pretrain_weights=pretrain_weights)
+#
+#     # 开始训练任务
+#     task.run()
+#
+#     # 停止训练任务
+#     # task.stop()
+
+def retrain_task(exp_name, dataset_dir="dataset/merge_dataset_fake", batch_size=1, pretrain_weights = None):
     model_weights = f"output/yolov3_darknet53_270e_{exp_name}/model_final"
-    # 日志路径
     log_dir = f"output/yolov3_darknet53_270e_{exp_name}"
-
-    # 创建训练所需的配置文件
-    task_config_path = create_task(exp_name, dataset_dir, model_weights)
-
-    # pretrain_weights=None 从头开始训练，设置权重路径则为继续训练
-    pretrain_weights = None
-    # pretrain_weights = "output/yolov3_darknet53_270e_test_interface/6.pdparams"
-    # task = Launcher(configs_path=task_config_path, exp_name=exp_name, pretrain_weights=pretrain_weights)
-    task = ProcessLauncher(configs_path=task_config_path, exp_name=exp_name, log_dir=log_dir,
-                           pretrain_weights=pretrain_weights)
-
-    # 开始训练任务
-    task.run()
-
-    # 停止训练任务
-    # task.stop()
-
-
-def retrain_task(exp_name, dataset_dir="dataset/merge_dataset_fake", pretrain_weights = None):
-    model_weights = f"output/yolov3_darknet53_270e_{exp_name}/model_final"
-    log_dir = f"output/yolov3_darknet53_270e_{exp_name}"
-    task_config_path = create_task(exp_name, dataset_dir, model_weights)
+    task_config_path = create_task(exp_name, dataset_dir, model_weights, batch_size=batch_size)
 
     # pretrain_weights=None 从头开始训练，设置权重路径则为继续训练
     # pretrain_weights = "output/yolov3_darknet53_270e_test_interface/6.pdparams"

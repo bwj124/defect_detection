@@ -16,4 +16,4 @@ OptimizerBuilder:
   regularizer:
     factor: 0.0005
     type: L2
-epoch: 200
+epoch: 1
