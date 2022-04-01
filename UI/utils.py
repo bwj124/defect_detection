@@ -1,5 +1,6 @@
 import os
 import sqlite3
+import threading
 
 
 class DataBase:
@@ -63,3 +64,14 @@ class DataBase:
 # print(database.search())
 # database.delete('id', 1)
 # print(database.search())
+
+class ModelThread(threading.Thread):
+    def __init__(self, method, *kwargs):
+        threading.Thread.__init__(self)
+        self.method = method
+        self.args = kwargs
+
+    def run(self) -> None:
+        print('开始线程')
+        self.method(self.args[0], self.args[1], self.args[2])
+        print('结束线程')

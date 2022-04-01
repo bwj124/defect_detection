@@ -17,6 +17,7 @@ if 'UI' in os.getcwd():
     from settings import Ui_Dialog as ST_Dialog
     from picture_preview import Ui_Dialog as PV_Dialog
     from utils import DataBase
+    from UI.utils import ModelThread as Thread
 
     tasks_path = 'tasks/'
     data_path = 'data/'
@@ -32,6 +33,7 @@ else:
     from UI.settings import Ui_Dialog as ST_Dialog
     from UI.picture_preview import Ui_Dialog as PV_Dialog
     from UI.utils import DataBase
+    from UI.utils import ModelThread as Thread
 
     tasks_path = 'UI/tasks/'
     data_path = 'UI/data/'
@@ -243,6 +245,7 @@ class MyPVDialog(PV_Dialog, QtWidgets.QDialog):
 class MyWindow(QMainWindow, Ui_MainWindow):
     def __init__(self):
         super(MyWindow, self).__init__(parent=None)
+        self.predict_result_list = None
         self.setupUi(self)
         self.setWindowIcon(QtGui.QIcon(icon_path))
         self.statusBar().showMessage('正在初始化...', )
@@ -349,7 +352,9 @@ class MyWindow(QMainWindow, Ui_MainWindow):
 
     # 显示异常图片大图
     def show_bigPicture(self):
-        self.currentImgIdx = self.listWidget.currentIndex().row()
+        # self.currentImgIdx = self.listWidget.currentIndex().row()
+        self.currentImgIdx = self.listWidget.currentRow()
+        print(self.currentImgIdx)
         self.listWidget.clearSelection()
         if self.currentImgIdx in range(len(self.fault_pictures)):
             currentImg = QPixmap(self.fault_pictures[self.currentImgIdx]).scaledToHeight(400)
@@ -824,18 +829,21 @@ class MyWindow(QMainWindow, Ui_MainWindow):
     def generate_info(self, infer_img, config_path="configs/yolov3/yolov3_darknet53_270e_voc_defect.yml",
                   model_weights="output/yolov3_darknet53_270e_voc_defect/best_model.pdparams"):
         from tools.inference import predict
-        predict_result =  predict(infer_img, config_path, model_weights)
+        predict_result = predict(infer_img, config_path, model_weights)
         return_list = []
         for result in predict_result:
             items = result.split()
             return_list.append(items)
-        return return_list
+        self.predict_result_list = return_list
 
     def model_process(self, image="dataset/merge_dataset_fake/valid_image/IMG_20220117_101624_3.jpg"):
         predict_result = self.generate_info(image)
+        # thread = Thread(self.generate_info, image, "configs/yolov3/yolov3_darknet53_270e_voc_defect.yml", "output/yolov3_darknet53_270e_voc_defect/best_model.pdparams")
+        # thread.start()
 
         self.label_5.setPixmap(QPixmap(image))
-        if predict_result:
+        # thread.join()
+        if self.predict_result_list:
             fault_temp = 'output/'+image.split('/')[-1]
             self.fault_pictures.append(fault_temp)
             item = QtWidgets.QListWidgetItem(QtGui.QIcon(fault_temp), '')
@@ -844,11 +852,11 @@ class MyWindow(QMainWindow, Ui_MainWindow):
             index_fault_tasks_button = [self.pushButton_19, self.pushButton_21, self.pushButton_20]
             index_fault_warn = [self.label_18, self.label_24, self.label_26]
             index_fault_percent = [self.label_19, self.label_25, self.label_27]
-            for result in predict_result:
+            for result in self.predict_result_list:
                 self.count_fault += 1
+                current_time = QDateTime.currentDateTime().toString("yyyy-MM-dd hh:mm:ss")
+                print(current_time)
                 if self.count_fault < 4:
-                    current_time = QDateTime.currentDateTime().toString("yyyy-MM-dd hh:mm:ss")
-                    print(current_time)
                     index_fault_tasks[self.count_fault - 1].setHtml(
                         "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
                         "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
@@ -870,6 +878,12 @@ class MyWindow(QMainWindow, Ui_MainWindow):
                         result[1], result[2], result[3], result[4], result[5]]
                 self.current_max_id+=1
                 self.database.insert(info)
+
+    # def thread_model_process(self, img = "dataset/merge_dataset_fake/valid_image/IMG_20220117_101624_3.jpg"):
+    #     thread = Thread(self.model_process, img)
+    #     thread.start()
+        # thread.join() # 等待线程结束
+
 
     # 状态改变时，更新状态栏
     def update_statusbar(self):
