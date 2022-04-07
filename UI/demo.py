@@ -319,8 +319,6 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         self.pushButton_7.clicked.connect(self.switch_CPU_GPU)
         self.pushButton_8.clicked.connect(self.save_update_model_result)
 
-        self.statusbar.showMessage('初始化完成')
-
         # 每隔2秒检测任务栏状态
         self.timer = QTimer(self)
         self.timer.timeout.connect(self.update_statusbar)
@@ -337,6 +335,9 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         self.update_timer = QTimer()
         self.last_line =None
         self.is_last_line_read = False
+
+        self.statusbar_message = '初始化完成'
+        self.show_statusbar_message()
 
     def showMainWindow(self):
         self.stackedWidget.setCurrentIndex(0)
@@ -361,6 +362,9 @@ class MyWindow(QMainWindow, Ui_MainWindow):
             self.preview_dialog.label.setPixmap(currentImg)
             self.preview_dialog.label.setScaledContents(True)
             self.preview_dialog.setVisible(True)
+
+    def show_statusbar_message(self):
+        self.statusbar.showMessage(self.statusbar_message)
 
     def dialog_create_task(self):
         self.ct_dialog.setVisible(True)
@@ -829,12 +833,18 @@ class MyWindow(QMainWindow, Ui_MainWindow):
     def generate_info(self, infer_img, config_path="configs/yolov3/yolov3_darknet53_270e_voc_defect.yml",
                   model_weights="output/yolov3_darknet53_270e_voc_defect/best_model.pdparams"):
         from tools.inference import predict
-        predict_result = predict(infer_img, config_path, model_weights)
         return_list = []
-        for result in predict_result:
-            items = result.split()
-            return_list.append(items)
+        try:
+            predict_result = predict(infer_img, config_path, model_weights)
+            for result in predict_result:
+                items = result.split()
+                return_list.append(items)
+        except:
+            print('模型运行异常')
+            self.statusbar_message = '模型运行异常'
+            self.show_statusbar_message()
         self.predict_result_list = return_list
+
 
     def model_process(self, image="dataset/merge_dataset_fake/valid_image/IMG_20220117_101624_3.jpg"):
         predict_result = self.generate_info(image)
@@ -884,13 +894,14 @@ class MyWindow(QMainWindow, Ui_MainWindow):
     #     thread.start()
         # thread.join() # 等待线程结束
 
-
     # 状态改变时，更新状态栏
     def update_statusbar(self):
         if dict_task['batch'] == -1:
-            self.statusbar.showMessage('请选择或创建一个任务以运行')
+            self.statusbar_message = '请选择或创建一个任务以运行'
+            self.show_statusbar_message()
         else:
-            self.statusbar.showMessage('当前任务：' + dict_task['task'] + '\t模型：'+dict_task['model'])
+            self.statusbar_message = '当前任务：' + dict_task['task'] + '\t模型：'+dict_task['model']
+            self.show_statusbar_message()
 
     # 模型更新图片目录,
     def open_update_img_dir(self):
